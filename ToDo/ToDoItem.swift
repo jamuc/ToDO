@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct ToDoItem {
+struct ToDoItem: Equatable {
+    static func == (lhs: ToDoItem, rhs: ToDoItem) -> Bool {
+        return lhs.title == rhs.title
+    }
+    
     let title: String
     let description: String?
     let timestamp: Double?

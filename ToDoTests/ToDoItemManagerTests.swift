@@ -12,14 +12,17 @@ import XCTest
 class ToDoItemManagerTests: XCTestCase {
     
     var itemManager: ToDoItemManager!
+    var item: ToDoItem!
     
     override func setUp() {
         super.setUp()
         itemManager =  ToDoItemManager()
+        item = ToDoItem(title: "This is a new todo item")
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        itemManager = nil
+        item = nil
         super.tearDown()
     }
     
@@ -32,21 +35,20 @@ class ToDoItemManagerTests: XCTestCase {
     }
     
     func testAddItemIncreasesToDoItemCountByOne() {
-        itemManager.add(item: ToDoItem(title: ""))
+        itemManager.add(item: item)
         XCTAssertEqual(itemManager.toDoCount, 1)
         XCTAssertEqual(itemManager.doneCount, 0 )
     }
     
     func testItemAtReturnsRequestedItem() {
-        itemManager.add(item: ToDoItem(title: ""))
+        itemManager.add(item: item)
         
         let returnedItem = itemManager.item(at: 0)
-        XCTAssertEqual(returnedItem?.title, "")
+        XCTAssertEqual(item, returnedItem)
     }
     
     func testCheckItemAtDecreasesToDoCountAndIncreasesDoneCount() {
-        itemManager.add(item: ToDoItem(title: ""))
-        
+        itemManager.add(item: item)
         itemManager.checkItem(at: 0)
         
         XCTAssertEqual(itemManager.toDoCount, 0)

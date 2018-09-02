@@ -46,4 +46,13 @@ class ToDoItemTests: XCTestCase {
         let item = ToDoItem(title: itemTitle, location: location)
         XCTAssertEqual(item.location?.name, location.name)
     }
+    
+    func testItemsAreEquatable() {
+        let item1 = ToDoItem(title: itemTitle)
+        let item2 = ToDoItem(title: itemTitle)
+        let item3 = ToDoItem(title: "This one doesn't fit")
+        
+        XCTAssertEqual(item1, item2)
+        XCTAssertNotEqual(item1, item3)
+    }
 }
