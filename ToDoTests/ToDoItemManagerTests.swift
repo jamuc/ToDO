@@ -30,4 +30,26 @@ class ToDoItemManagerTests: XCTestCase {
     func testInitDoneCountIsInitallyZero() {
         XCTAssertEqual(itemManager.doneCount, 0)
     }
+    
+    func testAddItemIncreasesToDoItemCountByOne() {
+        itemManager.add(item: ToDoItem(title: ""))
+        XCTAssertEqual(itemManager.toDoCount, 1)
+        XCTAssertEqual(itemManager.doneCount, 0 )
+    }
+    
+    func testItemAtReturnsRequestedItem() {
+        itemManager.add(item: ToDoItem(title: ""))
+        
+        let returnedItem = itemManager.item(at: 0)
+        XCTAssertEqual(returnedItem?.title, "")
+    }
+    
+    func testCheckItemAtDecreasesToDoCountAndIncreasesDoneCount() {
+        itemManager.add(item: ToDoItem(title: ""))
+        
+        itemManager.checkItem(at: 0)
+        
+        XCTAssertEqual(itemManager.toDoCount, 0)
+        XCTAssertEqual(itemManager.doneCount, 1)
+    }
 }
