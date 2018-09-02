@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import ToDo
 
 final class ToDoItemManager {
     var toDoCount: Int { return toDoItems.count }
