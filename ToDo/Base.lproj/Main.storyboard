@@ -32,8 +32,12 @@
                             <outlet property="delegate" destination="Tu3-ae-eIW" id="o9h-i4-L0g"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="dataProvider" destination="Lnd-nB-0qg" id="hmq-sL-L1c"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBM-Mx-9d6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Lnd-nB-0qg" customClass="ItemListDataProvider" customModule="ToDo" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-206" y="188"/>
         </scene>

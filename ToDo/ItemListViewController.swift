@@ -9,10 +9,13 @@
 import UIKit
 
 class ItemListViewController: UITableViewController {
+    
+    @IBOutlet var dataProvider: (UITableViewDataSource & UITableViewDelegate)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.dataSource = dataProvider
+        tableView.delegate = dataProvider
     }
 
     override func didReceiveMemoryWarning() {
